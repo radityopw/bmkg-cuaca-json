@@ -1,0 +1,7 @@
+{
+    "require": {
+        "simplehtmldom/simplehtmldom": "^2.0@RC"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
