@@ -16,7 +16,8 @@ function process_api($url){
     $existing_kota = array();
     
     if(file_exists("cuaca/kota.json")){
-        $existing_kota = json_decode(stripslashes(file_get_contents("cuaca/kota.json")),true);
+        //$existing_kota = json_decode(stripslashes(file_get_contents("cuaca/kota.json")),true);
+        $existing_kota = json_decode((file_get_contents("cuaca/kota.json")),true);
         echo json_last_error_msg();
         echo PHP_EOL;
     }
@@ -105,7 +106,7 @@ function process_api($url){
 
     @mkdir('cuaca');
     
-    file_put_contents("cuaca/kota_".$g_iterator.".json",json_encode($kota));
+    file_put_contents("cuaca/kota_".$g_iterator.".json",utf8_encode(json_encode($kota)));
     
     if($existing_kota){
         
@@ -113,10 +114,10 @@ function process_api($url){
         
     }
 
-    file_put_contents("cuaca/kota.json",json_encode($kota));
+    file_put_contents("cuaca/kota.json",utf8_encode(json_encode($kota)));
 
     foreach($forecast as $id_kota=>$f_kota){
-        file_put_contents("cuaca/forecast_".$id_kota.".json",json_encode($f_kota));
+        file_put_contents("cuaca/forecast_".$id_kota.".json",utf8_encode(json_encode($f_kota)));
     }
 }
 
