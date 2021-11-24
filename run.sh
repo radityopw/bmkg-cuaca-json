@@ -1,5 +1,7 @@
 #! /bin/bash
 
+git pull
+
 rm -r xml/*
 rm -r cuaca/*
 php -f convert.php
