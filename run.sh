@@ -1,5 +1,7 @@
 #! /bin/bash
 
+cd "$(dirname "$0")"
+
 rm -r xml/*
 rm -r cuaca/*
 php -f convert.php
